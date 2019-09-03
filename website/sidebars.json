@@ -1,0 +1,11 @@
+{
+  "guides": {
+    "Guides": ["guides"],
+    "Webox": [
+      "http/getting-started",
+      "http/static-files",
+      "http/simple-switch-based-router",
+      "http/with-routes-package"
+    ]
+  }
+}
