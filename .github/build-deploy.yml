@@ -1,0 +1,24 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-node@v1
+      with:
+        version: 10
+        
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: develop
+        BRANCH: master
+        FOLDER: website/build/reason-native-web.github.io
+        BUILD_SCRIPT: cd website && yarn install && yarn run build
