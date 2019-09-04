@@ -1,11 +1,15 @@
 {
   "guides": {
-    "Guides": ["guides"],
-    "Webox": [
-      "http/getting-started",
+    "Diacetyl": [
+      "http/http-getting-started",
       "http/static-files",
       "http/simple-switch-based-router",
       "http/with-routes-package"
-    ]
+    ],
+    "JOSE": ["jose/jose-getting-started"],
+    "OpenID Connect": ["oidc/oidc-getting-started"]
+  },
+  "projects": {
+    "Projects": ["projects/project-diacetyl"]
   }
 }

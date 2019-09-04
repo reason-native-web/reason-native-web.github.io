@@ -13,7 +13,7 @@ const users = [];
 
 const siteConfig = {
   title: "Reason Native Web", // Title for your website.
-  tagline: "A toolkit for native web development in OCaml and Reason",
+  tagline: "A toolkit for native web development",
   url: "https://reason-native-web.github.io", // Your website URL
   baseUrl: "/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -29,7 +29,8 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: "guides", label: "Guides" },
+    { doc: "projects/project-diacetyl", label: "Projects" },
+    { doc: "http/http-getting-started", label: "Guides" },
     { doc: "api", label: "API" },
     { page: "help", label: "Help" },
     { href: "https://github.com/reason-native-web", label: "GitHub" }
@@ -40,9 +41,9 @@ const siteConfig = {
   // users,
 
   /* path to images for header/footer */
-  headerIcon: "img/favicon.ico",
-  footerIcon: "img/favicon.ico",
-  favicon: "img/favicon.ico",
+  // headerIcon: "img/favicon.ico",
+  // footerIcon: "img/favicon.ico",
+  // favicon: "img/favicon.ico",
 
   /* Colors for website */
   colors: {
