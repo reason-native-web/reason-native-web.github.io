@@ -20,7 +20,7 @@ Diacetyl.Server.start(handler)
 <!--OCaml-->
 
 ```ocaml
-let handler _request = Diacetyl.Server.Response.Text.make "Hello world! in
+let handler _request = Diacetyl.Server.Response.Text.make "Hello world!" in
 Diacetyl.Server.start handler
 |> Lwt_main.run
 ```
