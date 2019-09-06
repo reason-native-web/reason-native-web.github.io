@@ -5,8 +5,8 @@ title: API links
 
 Here you will find the links to the APIs
 
-[Diacetyl](https://reason-native-web.github.io)
+[Morph](/API/morph/index.html)
 
-[JOSE](https://reason-native-web.github.io)
+[Morph_client](/API/morph_client/index.html)
 
-[OpenID Connect](https://reason-native-web.github.io)
+[Morph_core](/API/morph_core/index.html)

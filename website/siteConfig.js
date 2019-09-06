@@ -29,13 +29,15 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: "projects/project-diacetyl", label: "Projects" },
+    { doc: "projects/project-morph", label: "Projects" },
     { doc: "http/http-getting-started", label: "Guides" },
     { doc: "api", label: "API" },
     { page: "help", label: "Help" },
     { href: "https://github.com/reason-native-web", label: "GitHub" }
     // { blog: true, label: "Blog" }
   ],
+
+  wrapPagesHTML: true,
 
   // If you have users set above, you add it here:
   // users,
@@ -78,9 +80,10 @@ const siteConfig = {
   scripts: [
     "https://buttons.github.io/buttons.js",
     "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js",
-    "/js/code-block-buttons.js"
+    "/js/code-block-buttons.js",
+    "/js/highlight.pack.js"
   ],
-  stylesheets: ["/css/code-block-buttons.css"],
+  stylesheets: ["/css/code-block-buttons.css", "/css/odoc.css"],
 
   // On page navigation for the current documentation page.
   // onPageNav: "separate",

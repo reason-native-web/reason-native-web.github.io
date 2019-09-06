@@ -1,6 +1,6 @@
 {
   "guides": {
-    "Diacetyl": [
+    "Morph": [
       "http/http-getting-started",
       "http/static-files",
       "http/simple-switch-based-router",
@@ -10,6 +10,6 @@
     "OpenID Connect": ["oidc/oidc-getting-started"]
   },
   "projects": {
-    "Projects": ["projects/project-diacetyl"]
+    "Projects": ["projects/project-morph"]
   }
 }
