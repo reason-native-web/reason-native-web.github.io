@@ -1,6 +1,6 @@
 ---
 id: with-routes-package
-title: Useage with Routes library
+title: Usage with Routes library
 ---
 
 If you want a nice performant router you can use the [Routes](https://github.com/anuragsoni/routes) library from [anuragsoni](https://github.com/anuragsoni).
