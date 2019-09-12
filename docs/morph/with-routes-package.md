@@ -14,11 +14,11 @@ First step is to create handlers. A handler is just a function that returns a `R
 
 ```reason
 /* Just respond with "ok" on every request */
-let root_handler = (_request) => Http.Response.ok();
+let root_handler = (_request) => Morph_core.Response.empty;
 
 /* Return a greeting with the name */
 let greet_handler = (greeting, _request) => {
-  Http.Response.text(greeting);
+  Http.Response.text(greeting, Morph_core.Response.empty);
 };
 ```
 
@@ -26,10 +26,10 @@ let greet_handler = (greeting, _request) => {
 
 ```ocaml
 (* Just respond with "ok" on every request *)
-let root_handler _request = Http.Response.ok ()
+let root_handler _request = Morph_core.Response.empty
 
 (* Return a greeting with the name *)
-let greet_handler greeting _request = Http.Response.text greeting
+let greet_handler greeting _request = Http.Response.text greeting Morph_core.Response.empty
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
@@ -76,7 +76,7 @@ let handler = request =>
   |> (
     fun
     | Some(res) => res(request, context)
-    | None => Http.Response.NotFound.make()
+    | None => Morph_core.Response.not_found(Morph_core.Response.empty)
   );
 
 Morph.start_server(handler) |> Lwt_main.run;
@@ -91,7 +91,7 @@ let handler request =
     |>
     (function
      | Some res -> res request context
-     | None  -> Http.Response.NotFound.make ()) in
+     | None  -> Morph_core.Response.not_found Morph_core.Response.empty) in
 let _ = (Morph.start_server handler) |> Lwt_main.run
 ```
 

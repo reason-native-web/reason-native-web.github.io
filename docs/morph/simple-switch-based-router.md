@@ -22,12 +22,12 @@ let handler = (request: Morph_core.Request.t) => {
     |> List.filter(s => s != "");
 
   switch (request.meth, path_parts) {
-  | (_, []) => Morph_core.Response.text("Hello world!")
+  | (_, []) => Morph_core.Response.text("Hello world!", Morph_core.Response.empty)
   | (_, ["greet", name]) =>
-    Morph_core.Response.text("Hello " ++ name ++ "!")
+    Morph_core.Response.text("Hello " ++ name ++ "!", Morph_core.Response.empty)
   | (`GET, ["static", ...file_path]) =>
-    Morph_core.Response.static(file_path |> String.concat("/"))
-  | (_, _) => Morph_core.Response.not_found()
+    Morph_core.Response.static(file_path |> String.concat("/"), Morph_core.Response.empty)
+  | (_, _) => Morph_core.Response.not_found(Morph_core.Response.empty)
   };
 };
 ```
@@ -42,14 +42,14 @@ let handler (request : Morph_core.Request.t) =
       |> Uri.path
       |> String.split_on_char '/'
       |> List.filter (fun s  -> s <> "") in
-  match ((request.meth), path_parts) with
+  match (request.meth, path_parts) with
   | (_,[]) ->
-      Morph_core.Response.text "Hello world!"
+      Morph_core.Response.text "Hello world!" Morph_core.Response.empty
   | (_,"greet"::name::[]) ->
-      Morph_core.Response.text ("Hello " ^ name ^ "!")
+      Morph_core.Response.text ("Hello " ^ name ^ "!") Morph_core.Response.empty
   | (`GET, "static"::file_path) ->
-      Morph_core.Response.static (file_path |> String.concat "/")
-  | (_,_) -> Morph_core.Response.not_found ()
+      Morph_core.Response.static (file_path |> String.concat "/") Morph_core.Response.empty
+  | (_,_) -> Morph_core.Response.not_found Morph_core.Response.empty
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
