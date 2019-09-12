@@ -10,7 +10,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         version: 10
-        
+
     - name: Checkout
       uses: actions/checkout@master
 
@@ -18,7 +18,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_DEPLOY }}
-        BASE_BRANCH: develop
+        BASE_BRANCH: devlop
         BRANCH: master
         FOLDER: website/build/reason-native-web.github.io
-        BUILD_SCRIPT: cd website && yarn install && yarn run build
+        BUILD_SCRIPT: cd website && yarn install && yarn run build && cd ..
