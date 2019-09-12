@@ -7,22 +7,39 @@ If you want a nice performant router you can use the [Routes](https://github.com
 
 First step is to create handlers. A handler is just a function that returns a `Response.t`.
 
-> Note: We recommend that you include request and context in all handler signatures even if they are not used. That will make it easier to handle things like databases in the future.
+> Note: We recommend that you include request in all handler signatures even if they are not used. That will make it easier to handle things like databases in the future.
 
-```ocaml
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Reason-->
+
+```reason
 /* Just respond with "ok" on every request */
-let root_handler = (_request, _context) => Http.Response.Ok.make();
+let root_handler = (_request) => Http.Response.ok();
 
 /* Return a greeting with the name */
-let greet_handler = (greeting, _request, _context) => {
-  Http.Response.Text.make(greeting);
+let greet_handler = (greeting, _request) => {
+  Http.Response.text(greeting);
 };
-
 ```
 
-Then you create a route definition.
+<!--OCaml-->
 
 ```ocaml
+(* Just respond with "ok" on every request *)
+let root_handler _request = Http.Response.ok ()
+
+(* Return a greeting with the name *)
+let greet_handler greeting _request = Http.Response.text greeting
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Then you create a route definition. This definition will use the `root_handler` for a empty route. If the request is `/greet/:name` it will match the last part and pass it as a string to the `greet_handler`.
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Reason-->
+
+```reason
 let routes =
   Routes.(
     Routes.Infix.(
@@ -34,17 +51,48 @@ let routes =
   );
 ```
 
-Lastly you create a routes callback and start the server. In this case we pass in the request and context even if they are not used.
+<!--OCaml-->
 
 ```ocaml
-let routes_callback = (~request: Http.Request.t, context) => {
+let routes =
+  let open Routes in
+    let open Routes.Infix in
+      with_method [
+        (`GET, root_handler <$ s "");
+        (`GET, greet_handler <$> s "greet" *> str)
+      ]
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+Lastly you create a routes callback and start the server. In this case we pass in the request even if they are not used.
+
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Reason-->
+
+```reason
+let handler = request =>
   Routes.match_with_method(~target=request.target, ~meth=request.meth, routes)
   |> (
     fun
     | Some(res) => res(request, context)
     | None => Http.Response.NotFound.make()
   );
-};
 
-Http.Server.start(~context=(), routes_callback) |> Lwt_main.run;
+Morph.start_server(handler) |> Lwt_main.run;
 ```
+
+<!--OCaml-->
+
+```ocaml
+let handler request =
+  (Routes.match_with_method ~target:request.target ~meth:request.meth
+     routes)
+    |>
+    (function
+     | Some res -> res request context
+     | None  -> Http.Response.NotFound.make ()) in
+let _ = (Morph.start_server handler) |> Lwt_main.run
+```
+
+<!--END_DOCUSAURUS_CODE_TABS-->

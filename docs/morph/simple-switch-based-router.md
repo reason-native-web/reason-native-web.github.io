@@ -54,6 +54,8 @@ let handler (request : Morph_core.Request.t) =
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
+When you have built out the routes you want inside of the handler you simply pass it as the last argument to `Morph.start_server` to start the server.
+
 <!--DOCUSAURUS_CODE_TABS-->
 <!--Reason-->
 
