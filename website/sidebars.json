@@ -2,7 +2,6 @@
   "guides": {
     "Morph": [
       "morph/http-getting-started",
-      "morph/static-files",
       "morph/simple-switch-based-router",
       "morph/with-routes-package"
     ],
