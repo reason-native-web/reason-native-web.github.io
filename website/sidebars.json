@@ -1,10 +1,10 @@
 {
   "guides": {
     "Morph": [
-      "http/http-getting-started",
-      "http/static-files",
-      "http/simple-switch-based-router",
-      "http/with-routes-package"
+      "morph/http-getting-started",
+      "morph/static-files",
+      "morph/simple-switch-based-router",
+      "morph/with-routes-package"
     ],
     "JOSE": ["jose/jose-getting-started"],
     "OpenID Connect": ["oidc/oidc-getting-started"]

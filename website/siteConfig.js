@@ -30,7 +30,7 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     { doc: "projects/project-morph", label: "Projects" },
-    { doc: "http/http-getting-started", label: "Guides" },
+    { doc: "morph/http-getting-started", label: "Guides" },
     { doc: "api", label: "API" },
     { page: "help", label: "Help" },
     { href: "https://github.com/reason-native-web", label: "GitHub" }

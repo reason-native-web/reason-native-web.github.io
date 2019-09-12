@@ -11,18 +11,18 @@ There are some helpers to create some of the common responses, we will use the t
 <!--Reason-->
 
 ```reason
-let handler = _request => Morph.Server.Response.Text.make("Hello world!");
+let handler = _request => Morph_core.Response.text("Hello world!");
 
-Morph.Server.start(handler)
-|> Lwt_main.run;
+Morph.start_server(handler) |> Lwt_main.run;
 ```
 
 <!--OCaml-->
 
 ```ocaml
-let handler _request = Morph.Server.Response.Text.make "Hello world!" in
-Morph.Server.start handler
-|> Lwt_main.run
+let () =
+    let handler _request =
+        Morph_core.Response.text "Hello world!" in
+    Morph.start_server handler |> Lwt_main.run
 ```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
