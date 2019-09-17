@@ -27,7 +27,7 @@ let handler = (request: Morph_core.Request.t) => {
     Morph_core.Response.text("Hello " ++ name ++ "!", Morph_core.Response.empty)
   | (`GET, ["static", ...file_path]) =>
     Morph_core.Response.static(file_path |> String.concat("/"), Morph_core.Response.empty)
-  | (_, _) => Morph_core.Response.not_found(Morph_core.Response.empty)
+  | (_, _) => Morph_core.Response.not_found, Morph_core.Response.empty)
   };
 };
 ```
@@ -42,7 +42,7 @@ let handler (request : Morph_core.Request.t) =
       |> Uri.path
       |> String.split_on_char '/'
       |> List.filter (fun s  -> s <> "") in
-  match (request.meth, path_parts) with
+  match ((request.meth), path_parts) with
   | (_,[]) ->
       Morph_core.Response.text "Hello world!" Morph_core.Response.empty
   | (_,"greet"::name::[]) ->
@@ -60,14 +60,14 @@ When you have built out the routes you want inside of the handler you simply pas
 <!--Reason-->
 
 ```reason
-Morph.start_server(~middlewares=[Library.Middleware.logger], handler)
+Morph.start_server(handler)
 |> Lwt_main.run;
 ```
 
 <!--OCaml-->
 
 ```ocaml
-Morph.start_server ~middlewares:[Library.Middleware.logger] handler
+Morph.start_server handler
 |> Lwt_main.run
 ```
 

@@ -13,7 +13,7 @@ There are some helpers to create some of the common responses, we will use the t
 <!--Reason-->
 
 ```reason
-let handler = _request => Morph_core.Response.text("Hello World!", Morph_core.Response.empty);
+let handler = _request => Morph_core.Response.text("Hello World!");
 
 Morph.start_server(handler) |> Lwt_main.run;
 ```
