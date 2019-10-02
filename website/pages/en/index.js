@@ -30,7 +30,7 @@ class HomeSplash extends React.Component {
     );
 
     const Logo = props => (
-        <img className="projectLogo" src={props.img_src} alt="Project Logo" />
+      <img className="projectLogo" src={props.img_src} alt="Project Logo" />
     );
 
     const ProjectTitle = () => (
@@ -49,10 +49,13 @@ class HomeSplash extends React.Component {
   }
 }
 
-let exampleCode=`
-Morph.start_server(
-  _request => Morph.Response.text("Hello world!")
-) |> Lwt_main.run;
+let exampleCode = `
+let server = Morph_server_http.make();
+let handler = _request => Morph.Response.text(
+  "Hello World!"
+);
+
+Morph.start(~servers=[server], handler) |> Lwt_main.run;
 `;
 
 function CodeBlock(props) {
@@ -60,9 +63,9 @@ function CodeBlock(props) {
     <div>
       <script>{"hljs.initHighlightingOnLoad();"}</script>
 
-    <pre>
-      <code className="re">{props.code}</code>
-    </pre>
+      <pre>
+        <code className="re">{props.code}</code>
+      </pre>
     </div>
   );
 }
@@ -71,19 +74,13 @@ function ValueProp({ name, message }) {
   return (
     <section className="valueProp">
       <h3>{name}</h3>
-      <p className="valueProp">
-        {message}
-      </p>
+      <p className="valueProp">{message}</p>
     </section>
-  )
+  );
 }
 
 function Product({ children }) {
-  return (
-    <section className="Product">
-      {children}
-    </section>
-  );
+  return <section className="Product">{children}</section>;
 }
 
 class Index extends React.Component {
@@ -96,15 +93,24 @@ class Index extends React.Component {
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
           <Product>
-            <ValueProp name="Morph" message="Intuitive, easy to use web framework" />
+            <ValueProp
+              name="Morph"
+              message="Intuitive, easy to use web framework"
+            />
             <CodeBlock code={exampleCode} />
           </Product>
           <Product>
-            <ValueProp name="OIDC" message="Intuitive, easy to use web framework" />
+            <ValueProp
+              name="OIDC"
+              message="Intuitive, easy to use web framework"
+            />
             <CodeBlock code={exampleCode} />
           </Product>
           <Product>
-            <ValueProp name="Jose" message="Intuitive, easy to use web framework" />
+            <ValueProp
+              name="Jose"
+              message="Intuitive, easy to use web framework"
+            />
             <CodeBlock code={exampleCode} />
           </Product>
         </div>
