@@ -29,13 +29,13 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: "projects/project-morph", label: "Projects" },
-    { doc: "morph/http-getting-started", label: "Guides" },
-    { doc: "api", label: "API" },
+    { doc: "morph/http-getting-started", label: "Projects" },
     { page: "help", label: "Help" },
     { href: "https://github.com/reason-native-web", label: "GitHub" }
     // { blog: true, label: "Blog" }
   ],
+
+  disableHeaderTitle: true,
 
   wrapPagesHTML: true,
 
@@ -43,29 +43,28 @@ const siteConfig = {
   // users,
 
   /* path to images for header/footer */
-  // headerIcon: "img/favicon.ico",
-  // footerIcon: "img/favicon.ico",
-  // favicon: "img/favicon.ico",
+  headerIcon: "img/re/4.png",
+  footerIcon: "img/re/4.png",
+  favicon: "img/re/logo.png",
 
   /* Colors for website */
   colors: {
-    primaryColor: "#f4511e",
-    secondaryColor: "#ff844c"
+    primaryColor: "#002155",
+    secondaryColor: "#E34A6F"
   },
 
   /* Custom fonts for website */
-  /*
+  
   fonts: {
     myFont: [
-      "Times New Roman",
-      "Serif"
+      "Lato",
+      "sans-serif"
     ],
     myOtherFont: [
       "-apple-system",
       "system-ui"
     ]
   },
-  */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
   copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
@@ -83,7 +82,7 @@ const siteConfig = {
     "/js/code-block-buttons.js",
     "/js/highlight.pack.js"
   ],
-  stylesheets: ["/css/code-block-buttons.css", "/css/odoc.css"],
+  stylesheets: ["/css/code-block-buttons.css", "/css/odoc.css", "/css/stylesheets.css"],
 
   // On page navigation for the current documentation page.
   // onPageNav: "separate",

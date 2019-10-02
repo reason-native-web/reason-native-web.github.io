@@ -1,6 +1,6 @@
 ---
 id: api
-title: API links
+title: API Reference
 ---
 
 Here you will find the links to the APIs
