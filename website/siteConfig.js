@@ -29,7 +29,7 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: "morph/http-getting-started", label: "Projects" },
+    { doc: "morph/http-getting-started", label: "Guides" },
     { page: "help", label: "Help" },
     { href: "https://github.com/reason-native-web", label: "GitHub" }
     // { blog: true, label: "Blog" }
@@ -54,16 +54,10 @@ const siteConfig = {
   },
 
   /* Custom fonts for website */
-  
+
   fonts: {
-    myFont: [
-      "Lato",
-      "sans-serif"
-    ],
-    myOtherFont: [
-      "-apple-system",
-      "system-ui"
-    ]
+    myFont: ["Lato", "sans-serif"],
+    myOtherFont: ["-apple-system", "system-ui"]
   },
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
@@ -82,7 +76,11 @@ const siteConfig = {
     "/js/code-block-buttons.js",
     "/js/highlight.pack.js"
   ],
-  stylesheets: ["/css/code-block-buttons.css", "/css/odoc.css", "/css/stylesheets.css"],
+  stylesheets: [
+    "/css/code-block-buttons.css",
+    "/css/odoc.css",
+    "/css/stylesheets.css"
+  ],
 
   // On page navigation for the current documentation page.
   // onPageNav: "separate",
