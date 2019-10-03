@@ -8,9 +8,7 @@
       "morph/writing-middlewares"
     ],
     "JOSE": ["jose/jose-getting-started"],
-    "OpenID Connect": ["oidc/oidc-getting-started"]
-  },
-  "projects": {
-    "Projects": ["projects/project-morph"]
+    "OpenID Connect": ["oidc/oidc-getting-started"],
+    "API Reference": ["api"]
   }
 }

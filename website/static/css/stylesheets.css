@@ -1,0 +1,95 @@
+:root {
+  --primaryColor: #002155;
+  --secondaryColor: #e34a6f;
+  --codeBackground: #fafafa;
+}
+
+.homeWrapper {
+  width: 720px;
+  display: flex;
+  padding: 1.5rem !important;
+  flex-direction: row;
+}
+.homeWrapper img.projectLogo {
+  display: inline-block;
+  height: 10rem;
+  width: 10rem;
+  padding: 0 3rem 0 0 !important;
+  position: static !important;
+}
+
+.homeWrapper h2 {
+  display: inline-block;
+  text-align: left;
+}
+
+.homeSplashFade {
+}
+
+.homeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primaryColor);
+  padding: 4rem;
+}
+
+.homeSplashFade {
+  width: 100%;
+}
+
+.projectTitle {
+  color: white;
+}
+
+.Product {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  width: 75%;
+  margin: auto;
+}
+
+.Product h3 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.Product p {
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.valueProp {
+  flex: 1;
+}
+
+.nav-footer {
+  background-color: var(--primaryColor);
+}
+
+.hljs {
+  background-color: var(--codeBackground);
+  padding: 1.5rem;
+  border-radius: 5px;
+  line-height: 1.5;
+}
+
+@media only screen and (max-width: 736px) {
+  .homeWrapper {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .homeWrapper img.projectLogo {
+    padding: 0 0 3rem 0 !important;
+  }
+  .Product {
+    flex-direction: column;
+  }
+  .Product h3,
+  p {
+    text-align: center;
+  }
+}
